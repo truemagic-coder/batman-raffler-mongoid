@@ -1,10 +1,9 @@
 window.BatmanRaffler = class BatmanRaffler extends Batman.App
 
-  Batman.View::prefix = 'assets/views'
+  Batman.ViewStore.prefix = 'assets/views'
 
   @resources 'entries'
   @root 'entries#index'
-  # @route '/controller/:id', 'controller#show', resource: 'model', action: 'show'
 
   @on 'run', ->
     console?.log "Running ...."

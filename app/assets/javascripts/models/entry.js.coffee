@@ -1,7 +1,10 @@
 class BatmanRaffler.Entry extends Batman.Model
+  @resourceName: 'entry'
   @storageKey: 'entries'
   @persist Batman.RailsStorage
-  @encode 'id', 'name', 'winner', 'created_at', 'updated_at'
+  @encode 'name', 'winner'
+
+  @validate 'name', presence: true
 
   win: ->
     @set('winner', true)

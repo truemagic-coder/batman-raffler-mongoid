@@ -1,8 +1,10 @@
 class BatmanRaffler.EntriesController extends Batman.Controller
+  routingKey: 'entries'
+
   index: (params) ->
-    BatmanRaffler.Entry.load (err) -> throw err if err
-    @set 'entries', BatmanRaffler.Entry.get('all')
-    @set 'entry', new BatmanRaffler.Entry()
+    BatmanRaffler.Entry.load (err, results) =>
+      @set 'entries', BatmanRaffler.Entry.get('all')
+      @set 'entry', new BatmanRaffler.Entry()
 
   create: (params) ->
     @get('entry').save (err) =>
