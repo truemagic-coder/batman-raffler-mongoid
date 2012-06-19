@@ -3,5 +3,6 @@ class Entry
   include Mongoid::Timestamps
   field :name
   field :winner, type: Boolean
-  validates :name, :presence => true, :uniqueness => true
+  # BUG: server side validations cause unrecoverable Batman state machine error
+  # validates :name, :presence => true, :uniqueness => true
 end
